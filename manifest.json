@@ -1,0 +1,55 @@
+{
+  "manifest_version": 3,
+  "name": "B站视频自动总结插件",
+  "description": "自动总结B站视频内容，生成带时间段的结构化总结，支持侧边栏展示和时间跳转。",
+  "version": "1.0.0",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "scripting",
+    "storage",
+    "sidePanel"
+  ],
+  "host_permissions": [
+    "https://www.bilibili.com/video/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.bilibili.com/video/*"],
+      "js": ["content.js"],
+      "css": ["sidebar.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "sidebar.html",
+        "icons/*",
+        "libs/sha.js",
+        "libs/tesseract.min.js",
+        "libs/worker.min.js",
+        "libs/tesseract-core.wasm.js",
+        "libs/tessdata/*"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "side_panel": {
+    "default_path": "sidebar.html"
+  },
+  "action": {
+    "default_title": "视频总结",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png"
+    }
+  }
+}
