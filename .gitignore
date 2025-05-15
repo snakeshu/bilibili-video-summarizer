@@ -1,0 +1,23 @@
+# Node.js相关
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+# IDE相关
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# 操作系统相关
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 其他
+.env
+*.log
+*.zip
+*.rar
+.cursorrules 
